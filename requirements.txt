@@ -1,0 +1,5 @@
+asgiref==3.6.0
+Django==4.2
+numpy==1.24.3
+pickle5==0.0.11
+sqlparse==0.4.4

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Form</title>
+    <style>
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Three columns of equal width */
+            gap: 10px; /* Space between items */
+
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .form-group label {
+            flex-basis: 200px;
+            text-align: right;
+            margin-right: 20px;
+        }
+        .form-group input {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center">Parkinson Detection</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-columns">
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+        </div>
+        <div style="text-align: center;">
+        <button style="background-color: black;color: white;" type="submit">Submit</button>
+        
+           <p> Result:{{ answer }}</p>
+        </div>
+    </form>
+</body>
+</html>
